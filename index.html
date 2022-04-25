@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>LeetCode</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="72112fd3-5a73-4d06-9ee8-fc214ccc05d7" class="page sans"><header><h1 class="page-title">LeetCode</h1></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>N</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Problem Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Related to</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Language</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Difficulty</th></tr></thead><tbody><tr id="4b9ad761-8200-49cc-ac67-c12328cf5b3e"><td class="cell-xQh~">1</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Two%20Sum%204b9ad761820049ccac67c12328cf5b3e.html">Two Sum</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-purple">Hash Table</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="3dd906a7-e277-4b57-9a8f-48df5d95e329"><td class="cell-xQh~">9</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Palindrome%20Number%203dd906a7e2774b579a8f48df5d95e329.html">Palindrome Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="226fce44-3070-4d84-9b8d-d14912e2e604"><td class="cell-xQh~">13</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Roman%20to%20Integer%20226fce4430704d849b8dd14912e2e604.html">Roman to Integer</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="2ee74928-36f2-4c24-8239-8095129b4043"><td class="cell-xQh~">14</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Longest%20Common%20Prefix%202ee7492836f24c2482398095129b4043.html">Longest Common Prefix</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="b592a602-c849-4dcc-b643-f5eb526b6466"><td class="cell-xQh~">19</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Remove%20Nth%20Node%20From%20End%20of%20List%20b592a602c8494dccb643f5eb526b6466.html">Remove Nth Node From End of List</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-orange">Medium</span></td></tr><tr id="06040217-6541-4c9b-a916-4a26328e81fd"><td class="cell-xQh~">20</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Valid%20Parentheses%200604021765414c9ba9164a26328e81fd.html">Valid Parentheses</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Stack</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="2a0bfb97-6353-41ee-b112-48e7e1ea588e"><td class="cell-xQh~">21</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Merge%20Two%20Sorted%20Lists%202a0bfb97635341eeb11248e7e1ea588e.html">Merge Two Sorted Lists</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="0d868cb2-74f0-46d0-b5a8-23dd7d9e2262"><td class="cell-xQh~">26</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Remove%20Duplicates%20from%20Sorted%20Array%200d868cb274f046d0b5a823dd7d9e2262.html">Remove Duplicates from Sorted Array</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="8147e155-02f6-4a06-abaf-08cef77b1e7b"><td class="cell-xQh~">27</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Remove%20Element%208147e15502f64a06abaf08cef77b1e7b.html">Remove Element</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="7cb8659d-3e27-4d4b-ad83-ff502ee64fe6"><td class="cell-xQh~">28</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Implement%20strStr()%207cb8659d3e274d4bad83ff502ee64fe6.html">Implement strStr()</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-green">String Matching</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="89c35438-e758-41f2-9677-807edf8518ee"><td class="cell-xQh~">35</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Search%20Insert%20Position%2089c35438e75841f29677807edf8518ee.html">Search Insert Position</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-gray">Binary Search</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="f14e6131-4754-48c4-a585-ef523119d458"><td class="cell-xQh~">53</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Maximum%20Subarray%20f14e6131475448c4a585ef523119d458.html">Maximum Subarray</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-orange">Divide and Conquer</span><span class="selected-value select-value-color-red">Dynamic Programming</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="786237d4-1ecb-4044-9c73-b5c498616e96"><td class="cell-xQh~">58</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Length%20of%20Last%20Word%20786237d41ecb40449c73b5c498616e96.html">Length of Last Word</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="565dfdce-da99-4c60-8036-89a0a19777c1"><td class="cell-xQh~">66</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Plus%20One%20565dfdceda994c60803689a0a19777c1.html">Plus One</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="96f6aa4c-50ee-447c-9c27-d17155c80648"><td class="cell-xQh~">67</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Add%20Binary%2096f6aa4c50ee447c9c27d17155c80648.html">Add Binary</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-red">Simulation</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="42f1daaf-0b1e-4d6a-91c0-73823ab27533"><td class="cell-xQh~">69</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Sqrt(x)%2042f1daaf0b1e4d6a91c073823ab27533.html">Sqrt(x)</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6b22daac-95d9-4153-b9fe-b59eb9326727"><td class="cell-xQh~">70</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Climbing%20Stairs%206b22daac95d94153b9feb59eb9326727.html">Climbing Stairs</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Dynamic Programming</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-default">Memoization</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="b1771ead-bdc1-484d-88c6-6134850a9a51"><td class="cell-xQh~">83</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Remove%20Duplicates%20from%20Sorted%20List%20b1771eadbdc1484d88c66134850a9a51.html">Remove Duplicates from Sorted List</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="84c9ed26-09d5-44e1-bde1-3ed7dafc2931"><td class="cell-xQh~">88</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Merge%20Sorted%20Array%2084c9ed2609d544e1bde13ed7dafc2931.html">Merge Sorted Array</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-default">Sorting</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="a29ea6c6-9aaf-40e2-867d-722407f2d8ad"><td class="cell-xQh~">94</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Binary%20Tree%20Inorder%20Traversal%20a29ea6c69aaf40e2867d722407f2d8ad.html">Binary Tree Inorder Traversal</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-red">Stack</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="a86c15af-73d9-480f-a043-65d3dfbe0432"><td class="cell-xQh~">100</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Same%20Tree%20a86c15af73d9480fa04365d3dfbe0432.html">Same Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="f3f05861-bb38-407a-b2bb-e3fa1f93f952"><td class="cell-xQh~">101</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Symmetric%20Tree%20f3f05861bb38407ab2bbe3fa1f93f952.html">Symmetric Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6280cada-82e9-42cf-a829-ac410c12b6cc"><td class="cell-xQh~">104</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Maximum%20Depth%20of%20Binary%20Tree%206280cada82e942cfa829ac410c12b6cc.html">Maximum Depth of Binary Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="e7d8f06c-8dc6-4b35-90cc-b59a65403068"><td class="cell-xQh~">108</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree%20e7d8f06c8dc64b3590ccb59a65403068.html">Convert Sorted Array to Binary Search Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-red">BST</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-orange">Divide and Conquer</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="1687aa8b-141c-44e7-ab0c-56c33ffd8902"><td class="cell-xQh~">110</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Balanced%20Binary%20Tree%201687aa8b141c44e7ab0c56c33ffd8902.html">Balanced Binary Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="db7c49c7-41d2-41f1-94f3-8f863726ab06"><td class="cell-xQh~">111</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Minimum%20Depth%20of%20Binary%20Tree%20db7c49c741d241f194f38f863726ab06.html">Minimum Depth of Binary Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="803351ac-b461-47c7-87f3-8ec408020764"><td class="cell-xQh~">112</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Path%20Sum%20803351acb46147c787f38ec408020764.html">Path Sum</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6d5198e6-389f-4d24-86dc-dfdf63eab66d"><td class="cell-xQh~">118</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Pascal%E2%80%99s%20Triangle%206d5198e6389f4d2486dcdfdf63eab66d.html">Pascal’s Triangle</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-red">Dynamic Programming</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="a5fb1a10-c462-49ac-8d4a-b38dde51c10b"><td class="cell-xQh~">119</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Pascal%E2%80%99s%20Triangle%20II%20a5fb1a10c46249ac8d4ab38dde51c10b.html">Pascal’s Triangle II</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-red">Dynamic Programming</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="1b61fc76-e2cd-460e-94b0-a644d75c4244"><td class="cell-xQh~">125</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Valid%20Palindrome%201b61fc76e2cd460e94b0a644d75c4244.html">Valid Palindrome</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6e1dc471-5422-4e7d-a24d-8aaac97f6cd5"><td class="cell-xQh~">136</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Single%20Number%206e1dc47154224e7da24d8aaac97f6cd5.html">Single Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-yellow">Bit Manipulation</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6d1a72d1-a62d-4833-b1c6-e66c2b1a323b"><td class="cell-xQh~">141</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Linked%20List%20Cycle%206d1a72d1a62d4833b1c6e66c2b1a323b.html">Linked List Cycle</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="fd09e34b-01fd-4502-bf49-3f34da914d31"><td class="cell-xQh~">144</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Binary%20Tree%20Preorder%20Traversal%20fd09e34b01fd4502bf493f34da914d31.html">Binary Tree Preorder Traversal</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-red">Stack</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="665e8cd1-633a-44c1-8096-1e843b8382b8"><td class="cell-xQh~">145</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Binary%20Tree%20Postorder%20Traversal%20665e8cd1633a44c180961e843b8382b8.html">Binary Tree Postorder Traversal</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-red">Stack</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="ffabd39a-5077-4162-97d4-d21bc31cd339"><td class="cell-xQh~">167</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted%20ffabd39a5077416297d4d21bc31cd339.html">Two Sum II - Input Array Is Sorted</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="23956ce6-ab85-4fce-9b25-563357e62df5"><td class="cell-xQh~">168</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Excel%20Sheet%20Column%20Title%2023956ce6ab854fce9b25563357e62df5.html">Excel Sheet Column Title</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="00588297-8469-4e6f-be25-a95b3d4e7114"><td class="cell-xQh~">169</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Majority%20Element%200058829784694e6fbe25a95b3d4e7114.html">Majority Element</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-blue">Counting</span><span class="selected-value select-value-color-orange">Divide and Conquer</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-default">Sorting</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="71236fa0-4b03-490e-bfa8-ecbe54c8b243"><td class="cell-xQh~">171</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Excel%20Sheet%20Column%20Number%2071236fa04b03490ebfa8ecbe54c8b243.html">Excel Sheet Column Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="304b37b8-a1a2-4da0-b5d2-bac56531d8cb"><td class="cell-xQh~">189</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Rotate%20Array%20304b37b8a1a24da0b5d2bac56531d8cb.html">Rotate Array</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-orange">Medium</span></td></tr><tr id="f9ee1fe2-6577-4a21-848a-e3cf4ae93bf9"><td class="cell-xQh~">190</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reverse%20bits%20f9ee1fe265774a21848ae3cf4ae93bf9.html">Reverse bits</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-orange">Divide and Conquer</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6eb3fca9-67b5-4c4d-b41b-3e20e8774844"><td class="cell-xQh~">202</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Happy%20Number%206eb3fca967b54c4db41b3e20e8774844.html">Happy Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="d568768d-d628-42e3-98a2-3eadcff46603"><td class="cell-xQh~">203</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Remove%20Linked%20List%20Elements%20d568768dd62842e398a23eadcff46603.html">Remove Linked List Elements</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="64f48208-a841-4989-9e0d-b05462161dba"><td class="cell-xQh~">205</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Isomorphic%20Strings%2064f48208a84149899e0db05462161dba.html">Isomorphic Strings</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="a22f5932-f29a-43a9-bafa-482188203579"><td class="cell-xQh~">206</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reverse%20Linked%20List%20a22f5932f29a43a9bafa482188203579.html">Reverse Linked List</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="0b52b6ce-3bce-4f17-84ff-0a5b44906099"><td class="cell-xQh~">217</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Contains%20Duplicate%200b52b6ce3bce4f1784ff0a5b44906099.html">Contains Duplicate</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-default">Sorting</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="fc0114e6-7dcc-4b9e-9992-64413149f053"><td class="cell-xQh~">225</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Implement%20Stack%20using%20Queues%20fc0114e67dcc4b9e999264413149f053.html">Implement Stack using Queues</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Design</span><span class="selected-value select-value-color-brown">Queue</span><span class="selected-value select-value-color-red">Stack</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="8f9869f3-d0c1-4d53-a9ec-1f759a145768"><td class="cell-xQh~">226</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Invert%20Binary%20Tree%208f9869f3d0c14d53a9ec1f759a145768.html">Invert Binary Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="caaf42d1-5bbe-44ed-b278-e2084954271a"><td class="cell-xQh~">231</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Power%20of%20Two%20caaf42d15bbe44edb278e2084954271a.html">Power of Two</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="71d4788e-e5b4-42e2-88ea-18db49f3717a"><td class="cell-xQh~">237</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Delete%20Node%20in%20a%20Linked%20List%2071d4788ee5b442e288ea18db49f3717a.html">Delete Node in a Linked List</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="445a2ad5-6d0a-4c6e-8679-a59dc8cf43ec"><td class="cell-xQh~">242</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Valid%20Anagram%20445a2ad56d0a4c6e8679a59dc8cf43ec.html">Valid Anagram</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-default">Sorting</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="1f43d098-4068-4f47-b84c-07dd80da70c4"><td class="cell-xQh~">257</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Binary%20Tree%20Paths%201f43d09840684f47b84c07dd80da70c4.html">Binary Tree Paths</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="4ed98734-46fc-4563-a260-4658ffb91a66"><td class="cell-xQh~">258</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Add%20Digits%204ed9873446fc4563a2604658ffb91a66.html">Add Digits</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-green">Number Theory</span><span class="selected-value select-value-color-red">Simulation</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="70498ff6-46d5-40e9-b594-7e940e51e189"><td class="cell-xQh~">263</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Ugly%20Number%2070498ff646d540e9b5947e940e51e189.html">Ugly Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="3924aa9e-eba5-4962-a3ac-c60c801ef613"><td class="cell-xQh~">268</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Missing%20Number%203924aa9eeba54962a3acc60c801ef613.html">Missing Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-default">Sorting</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="d114e33a-5dd5-4399-8a4f-7150320ea97c"><td class="cell-xQh~">278</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/First%20Bad%20Version%20d114e33a5dd543998a4f7150320ea97c.html">First Bad Version</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-yellow">Interactive</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="ab77c3a4-8810-49a2-9961-4e6782ebd4b8"><td class="cell-xQh~">283</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Move%20Zeroes%20ab77c3a4881049a299614e6782ebd4b8.html">Move Zeroes</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="89bcd1a7-800c-4b3f-99fd-4a874695e54e"><td class="cell-xQh~">290</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Word%20Pattern%2089bcd1a7800c4b3f99fd4a874695e54e.html">Word Pattern</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="468cef1b-f111-4939-a3cd-76b5b1ad7807"><td class="cell-xQh~">326</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Power%20of%20Three%20468cef1bf1114939a3cd76b5b1ad7807.html">Power of Three</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="a1f84eef-4409-47cf-bc0d-e00fc054061f"><td class="cell-xQh~">342</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Power%20of%20Four%20a1f84eef440947cfbc0de00fc054061f.html">Power of Four</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="f62a6dac-06df-4798-9a1a-19faa26f097d"><td class="cell-xQh~">344</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reverse%20String%20f62a6dac06df47989a1a19faa26f097d.html">Reverse String</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-brown">Recursion</span><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="ffe848f4-d7e8-457a-970d-675f9c478a24"><td class="cell-xQh~">345</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reverse%20Vowels%20of%20a%20String%20ffe848f4d7e8457a970d675f9c478a24.html">Reverse Vowels of a String</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="1c6917fe-12bd-4ccf-accd-2223b45f61bd"><td class="cell-xQh~">349</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Intersection%20of%20Two%20Arrays%201c6917fe12bd4ccfaccd2223b45f61bd.html">Intersection of Two Arrays</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-default">Sorting</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="742b177a-13cf-43a2-a6ff-679d82dfad3e"><td class="cell-xQh~">350</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Intersection%20of%20Two%20Arrays%20II%20742b177a13cf43a2a6ff679d82dfad3e.html">Intersection of Two Arrays II</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-default">Sorting</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="d7aaef61-ac2f-4974-9bff-0bbe0edded8f"><td class="cell-xQh~">367</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Valid%20Perfect%20Square%20d7aaef61ac2f49749bff0bbe0edded8f.html">Valid Perfect Square</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="3ba4deea-5368-4a6d-88c0-290a392ff2ee"><td class="cell-xQh~">383</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Ransom%20Note%203ba4deea53684a6d88c0290a392ff2ee.html">Ransom Note</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Counting</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="69b2115e-3537-417d-9b3d-88aa84132c7b"><td class="cell-xQh~">387</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/First%20Unique%20Character%20in%20a%20String%2069b2115e3537417d9b3d88aa84132c7b.html">First Unique Character in a String</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Counting</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-brown">Queue</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="c7b32b9e-6c49-401d-b920-865c2bbf058f"><td class="cell-xQh~">392</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Is%20Subsequence%20c7b32b9e6c49401db920865c2bbf058f.html">Is Subsequence</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Dynamic Programming</span><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="6f87795f-aa76-42d5-9452-850273b763aa"><td class="cell-xQh~">404</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Sum%20of%20Left%20Leaves%206f87795faa7642d59452850273b763aa.html">Sum of Left Leaves</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">BFS</span><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="5abbf681-7be0-4119-9721-fb4778d3f6de"><td class="cell-xQh~">405</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Convert%20Number%20to%20Hexadecimal%205abbf6817be041199721fb4778d3f6de.html">Convert Number to Hexadecimal</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-yellow">Bit Manipulation</span><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="7974402b-4e7e-4e54-824a-33043df90e7d"><td class="cell-xQh~">409</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Longest%20Palindrome%207974402b4e7e4e54824a33043df90e7d.html">Longest Palindrome</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Greedy</span><span class="selected-value select-value-color-purple">Hash Table</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="67200419-37ca-4559-9a63-e8a09fd1132e"><td class="cell-xQh~">412</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Fizz%20Buzz%206720041937ca45599a63e8a09fd1132e.html">Fizz Buzz</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-red">Simulation</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="489714f5-3373-4b76-ad65-2b72097c4ec5"><td class="cell-xQh~">415</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Add%20Strings%20489714f533734b76ad652b72097c4ec5.html">Add Strings</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-red">Simulation</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="c745c85a-9a50-4a58-b025-68c594637352"><td class="cell-xQh~">434</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Number%20of%20Segments%20in%20a%20String%20c745c85a9a504a58b02568c594637352.html">Number of Segments in a String</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="e6b86350-8df3-429a-acfe-3ae4355b8443"><td class="cell-xQh~">441</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Arranging%20Coins%20e6b863508df3429aacfe3ae4355b8443.html">Arranging Coins</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-gray">Binary Search</span><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="3f131832-ad6e-4954-baa0-f3442370e830"><td class="cell-xQh~">482</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/License%20Key%20Formatting%203f131832ad6e4954baa0f3442370e830.html">License Key Formatting</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="76f70ee8-7097-4ff7-8e4b-10e9fd091fb6"><td class="cell-xQh~">485</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Max%20Consecutive%20Ones%2076f70ee870974ff78e4b10e9fd091fb6.html">Max Consecutive Ones</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="34438ca2-d26e-4b77-b36e-bda7be877445"><td class="cell-xQh~">504</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Base%207%2034438ca2d26e4b77b36ebda7be877445.html">Base 7</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-blue">Math</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="eed6ba5b-48b3-4129-b18b-426b6c72130b"><td class="cell-xQh~">509</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Fibonacci%20Number%20eed6ba5b48b34129b18b426b6c72130b.html">Fibonacci Number</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Dynamic Programming</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-default">Memoization</span><span class="selected-value select-value-color-brown">Recursion</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="2028e222-0cb3-450a-8cbb-213749e9d78e"><td class="cell-xQh~">520</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Detect%20Capital%202028e2220cb3450a8cbb213749e9d78e.html">Detect Capital</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="00b063b8-6ed5-4bab-9420-23eed9d72e91"><td class="cell-xQh~">557</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reverse%20Words%20In%20a%20String%2000b063b86ed54bab942023eed9d72e91.html">Reverse Words In a String</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="b8eecb9c-4f96-42b4-b245-99ab778dd0c3"><td class="cell-xQh~">566</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Reshape%20the%20Matrix%20b8eecb9c4f9642b4b24599ab778dd0c3.html">Reshape the Matrix</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-pink">Matrix</span><span class="selected-value select-value-color-red">Simulation</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="bf875561-bcfb-4ece-b432-2c8f9f3b4c23"><td class="cell-xQh~">572</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Subtree%20of%20Another%20Tree%20bf875561bcfb4eceb4322c8f9f3b4c23.html">Subtree of Another Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-default">Hash Function</span><span class="selected-value select-value-color-green">String Matching</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="dd374e39-393b-425d-b6fe-efd2536b5ee6"><td class="cell-xQh~">606</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Construct%20String%20from%20Binary%20Tree%20dd374e39393b425db6feefd2536b5ee6.html">Construct String from Binary Tree</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Binary Tree</span><span class="selected-value select-value-color-default">DFS</span><span class="selected-value select-value-color-pink">String</span><span class="selected-value select-value-color-gray">Tree</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="78a20699-7290-4a85-adf8-a8d598dbe5d0"><td class="cell-xQh~">620</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Not%20Boring%20Movies%2078a2069972904a85adf8a8d598dbe5d0.html">Not Boring Movies</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Database</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-brown">MySQL</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="330765d8-436d-4f10-9b3e-55eea22fce86"><td class="cell-xQh~">627</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Swap%20Salary%20330765d8436d4f109b3e55eea22fce86.html">Swap Salary</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-purple">Database</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-brown">MySQL</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="31c52bd2-32d5-4bb7-9e09-991c879658ac"><td class="cell-xQh~">657</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Robot%20Return%20to%20Origin%2031c52bd232d54bb79e09991c879658ac.html">Robot Return to Origin</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-red">Simulation</span><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="5c0598e7-1684-4342-8a13-64fb270f956e"><td class="cell-xQh~">704</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Binary%20Search%205c0598e7168443428a1364fb270f956e.html">Binary Search</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-gray">Binary Search</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="69c37a11-24b8-440c-b8fd-88fbf5d54271"><td class="cell-xQh~">824</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Goat%20Latin%2069c37a1124b8440cb8fd88fbf5d54271.html">Goat Latin</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-pink">String</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="977f8049-efdb-4fc2-b8b4-5c3506110467"><td class="cell-xQh~">832</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Flipping%20an%20Image%20977f8049efdb4fc2b8b45c3506110467.html">Flipping an Image</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-pink">Matrix</span><span class="selected-value select-value-color-red">Simulation</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="e727964c-3a5c-4e05-a18f-fc592470b54a"><td class="cell-xQh~">867</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Transpose%20Matrix%20e727964c3a5c4e05a18ffc592470b54a.html">Transpose Matrix</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-blue">Math</span><span class="selected-value select-value-color-red">Simulation</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="0267a351-02b4-49e9-8b09-f9981a950edd"><td class="cell-xQh~">876</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Middle%20of%20Linked%20List%200267a35102b449e98b09f9981a950edd.html">Middle of Linked List</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-orange">Linked List</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="0c14ca49-579a-407b-9ba0-51d28f75fe5f"><td class="cell-xQh~">977</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Squares%20of%20a%20Sorted%20Array%200c14ca49579a407b9ba051d28f75fe5f.html">Squares of a Sorted Array</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-yellow">Interactive</span><span class="selected-value select-value-color-default">Sorting</span><span class="selected-value select-value-color-default">Two Pointers</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr><tr id="bdc29ed4-3686-4cbd-acf4-97917fdfda2b"><td class="cell-xQh~">2022</td><td class="cell-title"><a href="LeetCode%2072112fd35a734d069ee8fc214ccc05d7/Convert%201D%20Array%20Into%202D%20Array%20bdc29ed436864cbdacf497917fdfda2b.html">Convert 1D Array Into 2D Array</a></td><td class="cell-HGiG"><span class="selected-value select-value-color-default">Array</span><span class="selected-value select-value-color-pink">Matrix</span><span class="selected-value select-value-color-green">String Matching</span></td><td class="cell-{f=z"><span class="selected-value select-value-color-green">Python</span></td><td class="cell-HgaE"><span class="selected-value select-value-color-green">Easy</span></td></tr></tbody></table></div></article></body></html>
